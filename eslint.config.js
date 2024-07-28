@@ -1,6 +1,8 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
 import pluginVue from "eslint-plugin-vue";
+import prettier from "eslint-config-prettier";
+import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
     {
@@ -67,9 +69,14 @@ export default [
             }],
             'vue/component-definition-name-casing': ['error', 'PascalCase'],
             'vue/component-name-in-template-casing': ['error', 'PascalCase'],
-            'vue/multi-word-component-names': 'off'
+            'vue/multi-word-component-names': 'off',
+
+            // Prettier rules
+            'prettier/prettier': 'error'
         },
     },
+    prettier,
+    prettierPlugin,
     ...pluginVue.configs["flat/essential"],
     pluginJs.configs.recommended,
 ];
