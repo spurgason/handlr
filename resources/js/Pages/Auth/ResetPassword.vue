@@ -21,7 +21,6 @@ const props = defineProps({
 const form = useForgotPasswordStore().form;
 
 useForgotPasswordStore().init(props);
-
 </script>
 
 <template>
