@@ -4,13 +4,14 @@ import pluginVue from "eslint-plugin-vue";
 
 export default [
     {
-        files: ["**/*.{js,mjs,cjs}"],
+        files: ["**/*.{js,mjs,cjs,vue}"],
         languageOptions: {
             ecmaVersion: 2021,
             sourceType: "module",
             globals: globals.browser,
         },
         rules: {
+            // Common JS rules
             'indent': ['error', 4],
             'no-unused-vars': 'warn',
             'no-console': 'warn',
@@ -27,19 +28,8 @@ export default [
             'keyword-spacing': ['error', { before: true, after: true }],
             'object-curly-spacing': ['error', 'always'],
             'array-bracket-spacing': ['error', 'never'],
-        },
-    },
-    {
-        files: ["**/*.vue"],
-        languageOptions: {
-            ecmaVersion: 2021,
-            sourceType: "module",
-            globals: {
-                ...globals.browser,
-                route: 'readonly'
-            },
-        },
-        rules: {
+
+            // Vue-specific rules
             'vue/no-unused-vars': 'warn',
             'vue/no-multiple-template-root': 'off',
             'vue/require-default-prop': 'off',
@@ -77,7 +67,7 @@ export default [
             }],
             'vue/component-definition-name-casing': ['error', 'PascalCase'],
             'vue/component-name-in-template-casing': ['error', 'PascalCase'],
-            'vue/multi-word-component-names': 'off',
+            'vue/multi-word-component-names': 'off'
         },
     },
     ...pluginVue.configs["flat/essential"],
