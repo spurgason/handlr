@@ -6,7 +6,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
-    const props = defineProps({
+const props = defineProps({
     email: {
         type: String,
         required: true,
@@ -17,18 +17,18 @@ import { Head, useForm } from '@inertiajs/vue3';
     },
 });
 
-    const form = useForm({
+const form = useForm({
     token: props.token,
     email: props.email,
     password: '',
     password_confirmation: '',
 });
 
-    const submit = () => {
+const submit = () => {
     form.post(route('password.store'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
-    };
+};
 </script>
 
 <template>
@@ -68,7 +68,10 @@ import { Head, useForm } from '@inertiajs/vue3';
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <InputLabel
+                    for="password_confirmation"
+                    value="Confirm Password"
+                />
 
                 <TextInput
                     id="password_confirmation"
@@ -79,11 +82,17 @@ import { Head, useForm } from '@inertiajs/vue3';
                     autocomplete="new-password"
                 />
 
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
+                <InputError
+                    class="mt-2"
+                    :message="form.errors.password_confirmation"
+                />
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
                     Reset Password
                 </PrimaryButton>
             </div>

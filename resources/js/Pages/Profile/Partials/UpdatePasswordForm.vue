@@ -6,16 +6,16 @@ import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
-    const passwordInput = ref(null);
-    const currentPasswordInput = ref(null);
+const passwordInput = ref(null);
+const currentPasswordInput = ref(null);
 
-    const form = useForm({
+const form = useForm({
     current_password: '',
     password: '',
     password_confirmation: '',
 });
 
-    const updatePassword = () => {
+const updatePassword = () => {
     form.put(route('password.update'), {
         preserveScroll: true,
         onSuccess: () => form.reset(),
@@ -30,7 +30,7 @@ import { ref } from 'vue';
             }
         },
     });
-    };
+};
 </script>
 
 <template>
@@ -39,7 +39,8 @@ import { ref } from 'vue';
             <h2 class="text-lg font-medium text-gray-900">Update Password</h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                Ensure your account is using a long, random password to stay secure.
+                Ensure your account is using a long, random password to stay
+                secure.
             </p>
         </header>
 
@@ -56,7 +57,10 @@ import { ref } from 'vue';
                     autocomplete="current-password"
                 />
 
-                <InputError :message="form.errors.current_password" class="mt-2" />
+                <InputError
+                    :message="form.errors.current_password"
+                    class="mt-2"
+                />
             </div>
 
             <div>
@@ -75,7 +79,10 @@ import { ref } from 'vue';
             </div>
 
             <div>
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <InputLabel
+                    for="password_confirmation"
+                    value="Confirm Password"
+                />
 
                 <TextInput
                     id="password_confirmation"
@@ -85,7 +92,10 @@ import { ref } from 'vue';
                     autocomplete="new-password"
                 />
 
-                <InputError :message="form.errors.password_confirmation" class="mt-2" />
+                <InputError
+                    :message="form.errors.password_confirmation"
+                    class="mt-2"
+                />
             </div>
 
             <div class="flex items-center gap-4">
@@ -97,7 +107,12 @@ import { ref } from 'vue';
                     leave-active-class="transition ease-in-out"
                     leave-to-class="opacity-0"
                 >
-                    <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
+                    <p
+                        v-if="form.recentlySuccessful"
+                        class="text-sm text-gray-600"
+                    >
+                        Saved.
+                    </p>
                 </Transition>
             </div>
         </form>

@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
-    const props = defineProps({
+const props = defineProps({
     align: {
         type: String,
         default: 'right',
@@ -16,22 +16,22 @@ import { computed, onMounted, onUnmounted, ref } from 'vue';
     },
 });
 
-    const closeOnEscape = (e) => {
-        if (open.value && e.key === 'Escape') {
-            open.value = false;
-        }
-    };
+const closeOnEscape = (e) => {
+    if (open.value && e.key === 'Escape') {
+        open.value = false;
+    }
+};
 
 onMounted(() => document.addEventListener('keydown', closeOnEscape));
 onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
 
-    const widthClass = computed(() => {
+const widthClass = computed(() => {
     return {
         48: 'w-48',
     }[props.width.toString()];
 });
 
-    const alignmentClasses = computed(() => {
+const alignmentClasses = computed(() => {
     if (props.align === 'left') {
         return 'ltr:origin-top-left rtl:origin-top-right start-0';
     } else if (props.align === 'right') {
@@ -41,7 +41,7 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
     }
 });
 
-    const open = ref(false);
+const open = ref(false);
 </script>
 
 <template>
@@ -51,7 +51,7 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
         </div>
 
         <!-- Full Screen Dropdown Overlay -->
-        <div v-show="open" class="fixed inset-0 z-40" @click="open = false"/>
+        <div v-show="open" class="fixed inset-0 z-40" @click="open = false" />
 
         <Transition
             enter-active-class="transition ease-out duration-200"
@@ -68,7 +68,10 @@ onUnmounted(() => document.removeEventListener('keydown', closeOnEscape));
                 style="display: none"
                 @click="open = false"
             >
-                <div class="rounded-md ring-1 ring-black ring-opacity-5" :class="contentClasses">
+                <div
+                    class="rounded-md ring-1 ring-black ring-opacity-5"
+                    :class="contentClasses"
+                >
                     <slot name="content" />
                 </div>
             </div>

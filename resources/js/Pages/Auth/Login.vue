@@ -16,17 +16,17 @@ defineProps({
     },
 });
 
-    const form = useForm({
+const form = useForm({
     email: '',
     password: '',
     remember: false,
 });
 
-    const submit = () => {
+const submit = () => {
     form.post(route('login'), {
         onFinish: () => form.reset('password'),
     });
-    };
+};
 </script>
 
 <template>
@@ -85,7 +85,11 @@ defineProps({
                     Forgot your password?
                 </Link>
 
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <PrimaryButton
+                    class="ms-4"
+                    :class="{ 'opacity-25': form.processing }"
+                    :disabled="form.processing"
+                >
                     Log in
                 </PrimaryButton>
             </div>

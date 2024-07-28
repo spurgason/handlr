@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, watch } from 'vue';
 
-    const props = defineProps({
+const props = defineProps({
     show: {
         type: Boolean,
         default: false,
@@ -16,7 +16,7 @@ import { computed, onMounted, onUnmounted, watch } from 'vue';
     },
 });
 
-    const emit = defineEmits(['close']);
+const emit = defineEmits(['close']);
 
 watch(
     () => props.show,
@@ -29,17 +29,17 @@ watch(
     }
 );
 
-    const close = () => {
-        if (props.closeable) {
+const close = () => {
+    if (props.closeable) {
         emit('close');
-        }
-    };
+    }
+};
 
-    const closeOnEscape = (e) => {
-        if (e.key === 'Escape' && props.show) {
+const closeOnEscape = (e) => {
+    if (e.key === 'Escape' && props.show) {
         close();
-        }
-    };
+    }
+};
 
 onMounted(() => document.addEventListener('keydown', closeOnEscape));
 
@@ -48,7 +48,7 @@ onUnmounted(() => {
     document.body.style.overflow = null;
 });
 
-    const maxWidthClass = computed(() => {
+const maxWidthClass = computed(() => {
     return {
         sm: 'sm:max-w-sm',
         md: 'sm:max-w-md',
@@ -62,7 +62,11 @@ onUnmounted(() => {
 <template>
     <Teleport to="body">
         <Transition leave-active-class="duration-200">
-            <div v-show="show" class="fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50" scroll-region>
+            <div
+                v-show="show"
+                class="fixed inset-0 overflow-y-auto px-4 py-6 sm:px-0 z-50"
+                scroll-region
+            >
                 <Transition
                     enter-active-class="ease-out duration-300"
                     enter-from-class="opacity-0"
@@ -71,7 +75,11 @@ onUnmounted(() => {
                     leave-from-class="opacity-100"
                     leave-to-class="opacity-0"
                 >
-                    <div v-show="show" class="fixed inset-0 transform transition-all" @click="close">
+                    <div
+                        v-show="show"
+                        class="fixed inset-0 transform transition-all"
+                        @click="close"
+                    >
                         <div class="absolute inset-0 bg-gray-500 opacity-75" />
                     </div>
                 </Transition>

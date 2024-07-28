@@ -16,3 +16,10 @@
 # Ignore other files or directories as needed
 /storage/**
 /bootstrap/cache/**
+
+# Ignore composer files
+/composer.json
+/composer.lock
+
+# Ignore eslint
+/.eslint.config.js

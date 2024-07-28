@@ -6,6 +6,10 @@ import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
     {
+        plugins: {
+            prettierPlugin,
+            prettier,
+        },
         files: ["**/*.{js,mjs,cjs,vue}"],
         languageOptions: {
             ecmaVersion: 2021,
@@ -72,11 +76,9 @@ export default [
             'vue/multi-word-component-names': 'off',
 
             // Prettier rules
-            'prettier/prettier': 'error'
+            'prettierPlugin/prettier': 'error'
         },
     },
-    prettier,
-    prettierPlugin,
     ...pluginVue.configs["flat/essential"],
     pluginJs.configs.recommended,
 ];
