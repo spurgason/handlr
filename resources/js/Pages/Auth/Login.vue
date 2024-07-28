@@ -6,6 +6,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import {useLoginStore} from "@/scripts/stores/login.js";
 
 defineProps({
     canResetPassword: {
@@ -16,17 +17,8 @@ defineProps({
     },
 });
 
-const form = useForm({
-    email: '',
-    password: '',
-    remember: false,
-});
+const form = useLoginStore().form;
 
-const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
-};
 </script>
 
 <template>
@@ -37,7 +29,7 @@ const submit = () => {
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
+        <form @submit.prevent="useLoginStore().submit">
             <div>
                 <InputLabel for="email" value="Email" />
 
