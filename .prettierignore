@@ -22,4 +22,4 @@
 /composer.lock
 
 # Ignore eslint
-/.eslint.config.js
+eslint.config.js
