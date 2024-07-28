@@ -16,17 +16,17 @@ defineProps({
     },
 });
 
-const form = useForm({
+    const form = useForm({
     email: '',
     password: '',
     remember: false,
 });
 
-const submit = () => {
+    const submit = () => {
     form.post(route('login'), {
         onFinish: () => form.reset('password'),
     });
-};
+    };
 </script>
 
 <template>

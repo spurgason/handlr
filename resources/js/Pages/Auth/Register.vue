@@ -6,18 +6,18 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
-const form = useForm({
+    const form = useForm({
     name: '',
     email: '',
     password: '',
     password_confirmation: '',
 });
 
-const submit = () => {
+    const submit = () => {
     form.post(route('register'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
-};
+    };
 </script>
 
 <template>

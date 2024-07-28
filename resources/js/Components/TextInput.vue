@@ -1,12 +1,12 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
-const model = defineModel({
+    const model = defineModel({
     type: String,
     required: true,
 });
 
-const input = ref(null);
+    const input = ref(null);
 
 onMounted(() => {
     if (input.value.hasAttribute('autofocus')) {
@@ -22,5 +22,5 @@ defineExpose({ focus: () => input.value.focus() });
         class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
         v-model="model"
         ref="input"
-    />
+    >
 </template>

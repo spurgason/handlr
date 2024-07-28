@@ -8,33 +8,33 @@ import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
 
-const confirmingUserDeletion = ref(false);
-const passwordInput = ref(null);
+    const confirmingUserDeletion = ref(false);
+    const passwordInput = ref(null);
 
-const form = useForm({
+    const form = useForm({
     password: '',
 });
 
-const confirmUserDeletion = () => {
-    confirmingUserDeletion.value = true;
+    const confirmUserDeletion = () => {
+        confirmingUserDeletion.value = true;
 
     nextTick(() => passwordInput.value.focus());
-};
+    };
 
-const deleteUser = () => {
+    const deleteUser = () => {
     form.delete(route('profile.destroy'), {
         preserveScroll: true,
         onSuccess: () => closeModal(),
         onError: () => passwordInput.value.focus(),
         onFinish: () => form.reset(),
     });
-};
+    };
 
-const closeModal = () => {
-    confirmingUserDeletion.value = false;
+    const closeModal = () => {
+        confirmingUserDeletion.value = false;
 
     form.reset();
-};
+    };
 </script>
 
 <template>

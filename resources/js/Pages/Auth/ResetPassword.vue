@@ -6,7 +6,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, useForm } from '@inertiajs/vue3';
 
-const props = defineProps({
+    const props = defineProps({
     email: {
         type: String,
         required: true,
@@ -17,18 +17,18 @@ const props = defineProps({
     },
 });
 
-const form = useForm({
+    const form = useForm({
     token: props.token,
     email: props.email,
     password: '',
     password_confirmation: '',
 });
 
-const submit = () => {
+    const submit = () => {
     form.post(route('password.store'), {
         onFinish: () => form.reset('password', 'password_confirmation'),
     });
-};
+    };
 </script>
 
 <template>

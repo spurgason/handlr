@@ -1,7 +1,7 @@
 <script setup>
 import { computed, onMounted, onUnmounted, watch } from 'vue';
 
-const props = defineProps({
+    const props = defineProps({
     show: {
         type: Boolean,
         default: false,
@@ -16,7 +16,7 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['close']);
+    const emit = defineEmits(['close']);
 
 watch(
     () => props.show,
@@ -29,17 +29,17 @@ watch(
     }
 );
 
-const close = () => {
-    if (props.closeable) {
+    const close = () => {
+        if (props.closeable) {
         emit('close');
-    }
-};
+        }
+    };
 
-const closeOnEscape = (e) => {
-    if (e.key === 'Escape' && props.show) {
+    const closeOnEscape = (e) => {
+        if (e.key === 'Escape' && props.show) {
         close();
-    }
-};
+        }
+    };
 
 onMounted(() => document.addEventListener('keydown', closeOnEscape));
 
@@ -48,7 +48,7 @@ onUnmounted(() => {
     document.body.style.overflow = null;
 });
 
-const maxWidthClass = computed(() => {
+    const maxWidthClass = computed(() => {
     return {
         sm: 'sm:max-w-sm',
         md: 'sm:max-w-md',

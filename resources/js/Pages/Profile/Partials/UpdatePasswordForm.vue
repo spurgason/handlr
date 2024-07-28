@@ -6,16 +6,16 @@ import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
-const passwordInput = ref(null);
-const currentPasswordInput = ref(null);
+    const passwordInput = ref(null);
+    const currentPasswordInput = ref(null);
 
-const form = useForm({
+    const form = useForm({
     current_password: '',
     password: '',
     password_confirmation: '',
 });
 
-const updatePassword = () => {
+    const updatePassword = () => {
     form.put(route('password.update'), {
         preserveScroll: true,
         onSuccess: () => form.reset(),
@@ -30,7 +30,7 @@ const updatePassword = () => {
             }
         },
     });
-};
+    };
 </script>
 
 <template>

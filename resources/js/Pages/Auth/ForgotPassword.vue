@@ -12,13 +12,13 @@ defineProps({
     },
 });
 
-const form = useForm({
+    const form = useForm({
     email: '',
 });
 
-const submit = () => {
+    const submit = () => {
     form.post(route('password.email'));
-};
+    };
 </script>
 
 <template>
