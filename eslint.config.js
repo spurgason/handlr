@@ -72,7 +72,7 @@ export default [
             'vue/script-indent': ['error', 4, {
                 'baseIndent': 1,
                 'switchCase': 1,
-                'ignores': ['ImportDeclaration', 'FunctionDeclaration', 'ObjectExpression', 'CallExpression']
+                'ignores': ['ImportDeclaration', 'FunctionDeclaration', 'VariableDeclaration', 'ObjectExpression', 'CallExpression']
             }],
             'vue/component-definition-name-casing': ['error', 'PascalCase'],
             'vue/component-name-in-template-casing': ['error', 'PascalCase'],

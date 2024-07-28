@@ -1,12 +1,13 @@
 import { defineStore } from 'pinia';
 import { useForm } from '@inertiajs/vue3';
 
-export const useLoginStore = defineStore('loginStore', {
+export const useRegisterStore = defineStore('registerStore', {
     state: () => ({
         form: useForm({
+            name: '',
             email: '',
             password: '',
-            remember: false,
+            password_confirmation: '',
         }),
     }),
     actions: {
@@ -15,7 +16,7 @@ export const useLoginStore = defineStore('loginStore', {
                 .transform((data) => ({
                     ...data,
                 }))
-                .submit('post', route('login'), {
+                .submit('post', route('register'), {
                     onSuccess: () => {
                         this.form.reset();
                     },
