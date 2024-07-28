@@ -14,7 +14,10 @@ export default [
         languageOptions: {
             ecmaVersion: 2021,
             sourceType: "module",
-            globals: globals.browser,
+            globals: {
+                ...globals.browser,
+                route: 'readonly'
+            },
         },
         rules: {
             // Common JS rules

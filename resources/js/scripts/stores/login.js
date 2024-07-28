@@ -1,5 +1,5 @@
-import {defineStore} from 'pinia'
-import {useForm} from "@inertiajs/vue3";
+import { defineStore } from 'pinia';
+import { useForm } from '@inertiajs/vue3';
 
 export const useLoginStore = defineStore('loginStore', {
     state: () => ({
@@ -12,15 +12,16 @@ export const useLoginStore = defineStore('loginStore', {
     }),
     actions: {
         submit() {
-            this.form.transform((data) => ({
-                ...data,
-                remember: data.remember ? 'on' : '',
-            }))
+            this.form
+                .transform((data) => ({
+                    ...data,
+                    remember: data.remember ? 'on' : '',
+                }))
                 .submit('post', route('login'), {
                     onSuccess: () => {
-                        this.form.reset()
-                    }
-                })
-        }
-    }
-})
+                        this.form.reset();
+                    },
+                });
+        },
+    },
+});

@@ -6,7 +6,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
-import {useLoginStore} from "@/scripts/stores/login.js";
+import { useLoginStore } from '@/scripts/stores/login.js';
 
 defineProps({
     canResetPassword: {
@@ -18,7 +18,6 @@ defineProps({
 });
 
 const form = useLoginStore().form;
-
 </script>
 
 <template>
