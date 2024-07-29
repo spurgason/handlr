@@ -1,5 +1,6 @@
 <?php
 
+use App\UserStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->timestamp('last_login')->nullable();
+            $table->integer('status')->default(UserStatus::Inactive);
             $table->rememberToken();
             $table->timestamps();
         });
