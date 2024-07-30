@@ -49,6 +49,9 @@ class User extends Authenticatable
         ];
     }
 
+    /**
+     * @return BelongsTo<User, Customer>
+     */
     public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class);
