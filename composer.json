@@ -51,10 +51,12 @@
             "@php artisan migrate --graceful --ansi"
         ],
         "ide-helper": [
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta",
             "@php artisan ide-helper:models -M"
         ],
         "pint": [
-            "pint"
+            "./vendor/bin/pint"
         ]
     },
     "extra": {
