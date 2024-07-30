@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CustomerStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CustomerFactory extends Factory
@@ -19,7 +20,7 @@ class CustomerFactory extends Factory
             'phone' => $this->faker->phoneNumber(),
             'address_id' => $this->faker->randomDigit(),
             'registration_date' => $this->faker->dateTime(),
-            'status' => $this->faker->randomElement(['active', 'inactive', 'locked']),
+            'status' => $this->faker->randomElement(CustomerStatus::values()),
         ];
     }
 }

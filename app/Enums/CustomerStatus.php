@@ -2,8 +2,12 @@
 
 namespace App\Enums;
 
+use App\Traits\Enums\HasEnumArray;
+
 enum CustomerStatus: string
 {
+    use HasEnumArray;
+
     case Active = 'active';
 
     case Inactive = 'inactive';

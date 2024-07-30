@@ -6,6 +6,9 @@ use App\Enums\CustomerStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @mixin IdeHelperCustomer
+ */
 class Customer extends Model
 {
     use HasFactory;
