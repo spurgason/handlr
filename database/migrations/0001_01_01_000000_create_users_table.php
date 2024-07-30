@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\UserStatus;
+use App\Models\Customer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,7 +19,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->timestamp('last_login')->nullable();
-            $table->integer('status')->default(UserStatus::Inactive);
+            $table->enum('status', ['active', 'inactive', 'locked'])->default('inactive');
+            $table->foreignIdFor(Customer::class, 'customer_id');
             $table->rememberToken();
             $table->timestamps();
         });
